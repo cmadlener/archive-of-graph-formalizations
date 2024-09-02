@@ -1,7 +1,7 @@
 (*Author: Christoph Madlener *)
 theory Berge_UGraph_Adaptor
   imports
-    AGF.Berge
+    "../Undirected_Graphs/Undirected_Set_Graphs"
     Kruskal.UGraph
 begin
 
@@ -72,7 +72,7 @@ lemma epathE[elim]:
   using assms
   apply (induction p arbitrary: u)
   apply auto
-  by (metis (no_types, hide_lams) UGraph.epath.simps(2) list.simps(9) set_uprod_simps)
+  by (metis (no_types, opaque_lifting) UGraph.epath.simps(2) list.simps(9) set_uprod_simps)
 
 lemma epath_ugraph_ofE[elim]:
   assumes "UGraph.epath (ugraph_of E) u up v"
